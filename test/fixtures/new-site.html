@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新サイト (SFCC) - ECサンプル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ヘッダーのスタイルが変更されている */
+        .header {
+            background-color: #1a252f;  /* 色が変更 */
+            color: white;
+            padding: 25px 0;  /* paddingが変更 */
+        }
+
+        .header-nav {
+            max-width: 100%;  /* widthが変更 */
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;  /* paddingが変更 */
+        }
+
+        .header-logo {
+            font-size: 28px;  /* font-sizeが変更 */
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;  /* gapが変更 */
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;  /* font-sizeが変更 */
+        }
+
+        .container {
+            max-width: 1400px;  /* widthが変更 */
+            margin: 0 auto;
+            padding: 50px 30px;  /* paddingが変更 */
+        }
+
+        .main-content {
+            background-color: #ffffff;  /* 背景色が変更 */
+            padding: 40px;  /* paddingが変更 */
+            border-radius: 12px;  /* border-radiusが変更 */
+        }
+
+        /* 商品リストのレイアウトが変更 */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);  /* カラム数が変更 */
+            gap: 20px;  /* gapが変更 */
+            margin-top: 40px;  /* marginが変更 */
+        }
+
+        .product-card {
+            background: white;
+            border: 2px solid #ced4da;  /* borderが変更 */
+            border-radius: 12px;  /* border-radiusが変更 */
+            padding: 15px;  /* paddingが変更 */
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);  /* transformが変更 */
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);  /* box-shadowが変更 */
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;  /* heightが変更 */
+            background-color: #f1f3f5;  /* 背景色が変更 */
+            border-radius: 8px;  /* border-radiusが変更 */
+            margin-bottom: 12px;  /* marginが変更 */
+        }
+
+        .product-title {
+            font-size: 16px;  /* font-sizeが変更 */
+            font-weight: bold;
+            color: #495057;  /* colorが変更 */
+            margin-bottom: 8px;  /* marginが変更 */
+        }
+
+        .product-price {
+            font-size: 20px;  /* font-sizeが変更 */
+            color: #dc3545;  /* colorが変更 */
+            font-weight: bold;
+        }
+
+        .button {
+            background-color: #0d6efd;  /* 背景色が変更 */
+            color: white;
+            padding: 10px 20px;  /* paddingが変更 */
+            border: none;
+            border-radius: 8px;  /* border-radiusが変更 */
+            font-size: 14px;  /* font-sizeが変更 */
+            cursor: pointer;
+            margin-top: 12px;  /* marginが変更 */
+            width: 100%;
+        }
+
+        .footer {
+            background-color: #212529;  /* 背景色が変更 */
+            color: white;
+            padding: 50px 0;  /* paddingが変更 */
+            margin-top: 80px;  /* marginが変更 */
+        }
+
+        .footer-content {
+            max-width: 1400px;  /* widthが変更 */
+            margin: 0 auto;
+            padding: 0 30px;  /* paddingが変更 */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="header-nav">
+            <div class="header-logo">新ECサイト (SFCC)</div>
+            <ul class="nav-menu">
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">商品一覧</a></li>
+                <li><a href="#">カート</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <h1>おすすめ商品</h1>
+            <div class="product-list">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <h2 class="product-title">商品A</h2>
+                    <p class="product-price">¥2,980</p>
+                    <button class="button">カートに追加</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <h2 class="product-title">商品B</h2>
+                    <p class="product-price">¥3,980</p>
+                    <button class="button">カートに追加</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <h2 class="product-title">商品C</h2>
+                    <p class="product-price">¥4,980</p>
+                    <button class="button">カートに追加</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <h2 class="product-title">商品D</h2>
+                    <p class="product-price">¥5,980</p>
+                    <button class="button">カートに追加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 新ECサイト (SFCC). All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

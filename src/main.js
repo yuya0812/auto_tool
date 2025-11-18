@@ -150,7 +150,7 @@ async function main() {
     // Generate CSS patch
     logger.info('Generating CSS patch...');
 
-    const useImportant = config.css?.useImportant ?? options.important;
+    const useImportant = options.important ?? config.css?.useImportant ?? false;
 
     const cssPatch = options.detailed
       ? generateDetailedCssPatch(diffReport, {

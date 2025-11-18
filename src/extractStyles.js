@@ -1,4 +1,6 @@
 import puppeteer from 'puppeteer';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { fileExists, isURL, readText } from './utils/fileHandler.js';
 
 /**
@@ -14,7 +16,6 @@ export async function extractStyles(source, selectors, properties, options = {})
 
     // Launch browser
     browser = await puppeteer.launch({
-      headless: true,
       ...puppeteerOptions
     });
 
@@ -34,9 +35,16 @@ export async function extractStyles(source, selectors, properties, options = {})
         timeout
       });
     } else if (await fileExists(source)) {
-      const html = await readText(source);
-      await page.setContent(html, {
-        waitUntil: 'networkidle2',
+      // Convert relative path to absolute path
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = path.dirname(__filename);
+      const absolutePath = path.resolve(process.cwd(), source);
+      const fileUrl = `file://${absolutePath}`;
+
+      if (logger) logger.debug(`Loading local file: ${fileUrl}`);
+
+      await page.goto(fileUrl, {
+        waitUntil: 'domcontentloaded',
         timeout
       });
     } else {
@@ -45,8 +53,8 @@ export async function extractStyles(source, selectors, properties, options = {})
 
     if (logger) logger.debug(`Page loaded successfully`);
 
-    // Wait a bit for any dynamic content
-    await page.waitForTimeout(1000);
+    // Wait a bit for any dynamic content (reduce timeout for local files)
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     // Extract styles
     const extractedData = await page.evaluate((selectorList, propertyList) => {
