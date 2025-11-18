@@ -1,0 +1,40 @@
+# Example selector configuration file
+# Specify CSS selectors to compare between old and new sites
+
+selectors:
+  # Header elements
+  - '.header'
+  - '.header-nav'
+  - '.header-logo'
+
+  # Main content
+  - '.main-content'
+  - '.container'
+
+  # Product-related elements (e-commerce)
+  - '.product-card'
+  - '.product-list'
+  - '.product-title'
+  - '.product-price'
+  - '.product-image'
+
+  # Footer
+  - '.footer'
+  - '.footer-nav'
+
+  # Common UI components
+  - '.button'
+  - '.btn-primary'
+  - '.btn-secondary'
+  - '.modal'
+  - '.dropdown'
+
+  # Layout
+  - '.row'
+  - '.col'
+  - '.grid'
+
+# You can also use more specific selectors
+# - 'div.header > nav.main-nav'
+# - '#product-123'
+# - 'article.post:first-child'
